@@ -21,5 +21,6 @@ func _on_projectile_area_body_entered(body: Node2D) -> void:
 		return;
 		
 	var projectile = body as Projectile;
+	print_debug("Projectile entered:", projectile.name);
 	health_component.dealDamage(projectile.damage)
-	body.queue_free();
+	projectile.queue_free();

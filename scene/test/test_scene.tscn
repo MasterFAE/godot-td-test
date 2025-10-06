@@ -28,4 +28,5 @@ tower_variant = ExtResource("3_ag7ef")
 
 [node name="Enemy" parent="Tiles" instance=ExtResource("4_eyrtm")]
 position = Vector2(276, 171)
+scale = Vector2(0.75, 0.75)
 stats = ExtResource("5_tbd4o")
