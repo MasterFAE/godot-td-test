@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health_component.tscn" id="2_nytjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtpcx"]
+radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yijav"]
-radius = 22.022715
+radius = 6.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_yijav")
@@ -17,11 +18,19 @@ script = ExtResource("1_yijav")
 shape = SubResource("CircleShape2D_wtpcx")
 
 [node name="Projectile Area" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="Projectile Collision" type="CollisionShape2D" parent="Projectile Area"]
 shape = SubResource("CircleShape2D_yijav")
 debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_nytjq")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+debug_enabled = true
+debug_path_custom_color = Color(0.77254903, 0.5921569, 0.8666667, 1)
 
 [connection signal="body_entered" from="Projectile Area" to="." method="_on_projectile_area_body_entered"]

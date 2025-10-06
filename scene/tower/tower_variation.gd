@@ -4,6 +4,7 @@ extends Resource
 @export var tower_name : String;
 @export var texture: Texture2D;
 @export var projectile_variation = Resource;
+@export_range(5, 100) var projectile_offset := 20;
 
 @export_category("Stats")
 @export_range(1, 100) var attack_damage := 1.0;

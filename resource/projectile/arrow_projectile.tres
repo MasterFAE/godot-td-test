@@ -10,5 +10,5 @@ region = Rect2(192, 384, 544, 160)
 [resource]
 script = ExtResource("2_0frh5")
 projectile_texture = SubResource("AtlasTexture_t0101")
-projectile_speed = 100.0
+projectile_speed = 15000.0
 metadata/_custom_type_script = "uid://c0a4snhed6bq3"

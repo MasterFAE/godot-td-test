@@ -26,7 +26,11 @@ tile_set = ExtResource("1_abdik")
 position = Vector2(317, 168)
 tower_variant = ExtResource("3_ag7ef")
 
-[node name="Enemy" parent="Tiles" instance=ExtResource("4_eyrtm")]
-position = Vector2(276, 171)
+[node name="Enemy" parent="Tiles" node_paths=PackedStringArray("navigation_target") instance=ExtResource("4_eyrtm")]
+position = Vector2(289, 242)
 scale = Vector2(0.75, 0.75)
 stats = ExtResource("5_tbd4o")
+navigation_target = NodePath("../../Goal")
+
+[node name="Goal" type="Node2D" parent="."]
+position = Vector2(649, 400)

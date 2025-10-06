@@ -4,13 +4,29 @@ extends CharacterBody2D
 @export var stats : EnemyStats;
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@export var navigation_target: Node2D;
+
 
 func _ready() -> void:
 	health_component.maxHealth = stats.max_health;
 	health_component.setHealth(stats.max_health);
 	health_component.onHealthChange.connect(_is_dead)
 	sprite_2d.texture = stats.character_texture;
-	
+	navigation_agent_2d.target_position = navigation_target.global_position;
+
+func _physics_process(delta: float) -> void:
+	if(!navigation_agent_2d.is_target_reached()):
+		var direction = to_local(navigation_agent_2d.get_next_path_position()).normalized();
+		self.velocity = direction * stats.movement_speed * delta;
+		move_and_slide();
+	else:
+		navigation_target_reached();
+		
+func navigation_target_reached():
+	# reduce player health;
+	self.queue_free();
+	pass;
 
 func _is_dead(currentHealth: float) -> void:
 	if(currentHealth <= 0):

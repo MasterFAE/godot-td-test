@@ -17,7 +17,6 @@ func _ready() -> void:
 	attack_timer.autostart = true;
 	
 func _on_attack_timer_timeout() -> void:
-	print("timeout")
 	if(enemies_in_range.is_empty()):
 		attack_timer.paused = true;
 		return;
@@ -32,7 +31,7 @@ func _fire_projectile(enemy: Enemy) -> void:
 	_projectile.projectile_variation = tower_variant.projectile_variation;
 	_projectile.target = enemy;
 	_projectile.damage = self._calculate_damage();
-	_projectile.global_position = Vector2(global_position.x, global_position.y - 5);
+	_projectile.global_position = Vector2(global_position.x, global_position.y - 15);
 	projectiles.add_child(_projectile);
 	
 func _calculate_damage() -> float:

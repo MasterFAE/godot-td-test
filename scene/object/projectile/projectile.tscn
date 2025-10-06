@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://c7gw4ofg11611" path="res://scene/object/projectile/projectile.gd" id="1_bwobo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48ukv"]
-radius = 9.0
+radius = 4.0
 
 [node name="Projectile" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_bwobo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
