@@ -9,8 +9,7 @@ region = Rect2(42, 442, 23, 15)
 
 [resource]
 script = ExtResource("1_aqjul")
-max_health = 250.0
-movement_speed = 2500.0
+movement_speed = 25.0
 character_name = "Goblin"
 character_texture = SubResource("AtlasTexture_853uk")
 metadata/_custom_type_script = "uid://yvl7ae2d5an5"

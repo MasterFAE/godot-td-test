@@ -27,7 +27,7 @@ debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)
 [node name="HealthComponent" parent="." instance=ExtResource("2_nytjq")]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 3.0
+path_desired_distance = 1.0
 target_desired_distance = 3.0
 path_postprocessing = 1
 debug_enabled = true

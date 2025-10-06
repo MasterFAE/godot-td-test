@@ -15,10 +15,15 @@ func _ready() -> void:
 	sprite_2d.texture = stats.character_texture;
 	navigation_agent_2d.target_position = navigation_target.global_position;
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(!navigation_agent_2d.is_target_reached()):
-		var direction = to_local(navigation_agent_2d.get_next_path_position()).normalized();
-		self.velocity = direction * stats.movement_speed * delta;
+		velocity = navigation_agent_2d.get_next_path_position() - global_position		
+		if abs(velocity.x) > abs(velocity.y):
+			velocity.y = 0
+		else:
+			velocity.x = 0
+			
+		velocity = velocity.normalized() *  stats.movement_speed;
 		move_and_slide();
 	else:
 		navigation_target_reached();

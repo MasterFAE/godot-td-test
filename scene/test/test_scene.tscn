@@ -32,5 +32,11 @@ scale = Vector2(0.75, 0.75)
 stats = ExtResource("5_tbd4o")
 navigation_target = NodePath("../../Goal")
 
+[node name="Enemy2" parent="Tiles" node_paths=PackedStringArray("navigation_target") instance=ExtResource("4_eyrtm")]
+position = Vector2(289, 264)
+scale = Vector2(0.75, 0.75)
+stats = ExtResource("5_tbd4o")
+navigation_target = NodePath("../../Goal")
+
 [node name="Goal" type="Node2D" parent="."]
 position = Vector2(649, 400)
