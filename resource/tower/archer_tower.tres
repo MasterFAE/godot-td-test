@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TowerVariation" load_steps=5 format=3 uid="uid://f7r1wwcv2u1g"]
+
+[ext_resource type="Script" uid="uid://cwr1qvcicphc3" path="res://scene/tower/tower_variation.gd" id="1_msjtb"]
+[ext_resource type="Resource" uid="uid://c18y02t5sgcyd" path="res://resource/projectile/arrow_projectile.tres" id="1_rv235"]
+[ext_resource type="Texture2D" uid="uid://23xklocbrb0" path="res://assets/tower/towers.png" id="2_vl0jq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv235"]
+atlas = ExtResource("2_vl0jq")
+region = Rect2(49, 50, 24, 30)
+
+[resource]
+script = ExtResource("1_msjtb")
+tower_name = "Archer Tower"
+texture = SubResource("AtlasTexture_rv235")
+projectile_variation = ExtResource("1_rv235")
+attack_damage = 3.0
+attack_range = 1.0
+crit_rate = 0.3
+crit_multiplier = 1.25
+metadata/_custom_type_script = "uid://cwr1qvcicphc3"

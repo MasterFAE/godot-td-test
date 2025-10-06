@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cetycb8mqa7x3"]
+
+[ext_resource type="Script" uid="uid://c4op7rwtw3i0i" path="res://scene/enemy/enemy.gd" id="1_yijav"]
+[ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health_component.tscn" id="2_nytjq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtpcx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yijav"]
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_yijav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wtpcx")
+
+[node name="Projectile Area" type="Area2D" parent="."]
+
+[node name="Projectile Collision" type="CollisionShape2D" parent="Projectile Area"]
+shape = SubResource("CircleShape2D_yijav")
+debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_nytjq")]
+
+[connection signal="body_entered" from="Projectile Area" to="." method="_on_projectile_area_body_entered"]

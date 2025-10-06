@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=4 format=3 uid="uid://gxhgj7ylhgff"]
+
+[ext_resource type="Script" uid="uid://yvl7ae2d5an5" path="res://scene/enemy/enemy_stats.gd" id="1_aqjul"]
+[ext_resource type="Texture2D" uid="uid://27f1yiuvw5vg" path="res://assets/character/Orc.png" id="1_x1pr0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_853uk"]
+atlas = ExtResource("1_x1pr0")
+region = Rect2(42, 442, 23, 15)
+
+[resource]
+script = ExtResource("1_aqjul")
+character_name = "Goblin"
+character_texture = SubResource("AtlasTexture_853uk")
+metadata/_custom_type_script = "uid://yvl7ae2d5an5"
