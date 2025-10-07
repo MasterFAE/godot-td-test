@@ -7,11 +7,10 @@ extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @export var navigation_target: Node2D;
 
-
 func _ready() -> void:
 	health_component.maxHealth = stats.max_health;
 	health_component.setHealth(stats.max_health);
-	health_component.onHealthChange.connect(_is_dead)
+	health_component.onDeath.connect(onDeath)
 	sprite_2d.texture = stats.character_texture;
 	navigation_agent_2d.target_position = navigation_target.global_position;
 
@@ -33,9 +32,11 @@ func navigation_target_reached():
 	self.queue_free();
 	pass;
 
-func _is_dead(currentHealth: float) -> void:
-	if(currentHealth <= 0):
-		self.queue_free(); 
+func onDeath() -> void:
+	self.queue_free();
+	var coinDrop = randi_range(stats.minCoin, stats.maxCoin);
+	print_debug(coinDrop, stats.minCoin, stats.maxCoin);
+	CurrencyManager.collectCoin(coinDrop);
 	
 func _on_projectile_area_body_entered(body: Node2D) -> void:
 	if(body is not Projectile):

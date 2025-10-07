@@ -14,6 +14,10 @@ config/name="td-test"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CurrencyManager="*res://script/global/currency_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -34,8 +38,13 @@ project/assembly_name="td-test"
 folder_colors={
 "res://assets/": "orange",
 "res://resource/": "red",
-"res://scene/": "green"
+"res://scene/": "green",
+"res://script/": "pink"
 }
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [layer_names]
 

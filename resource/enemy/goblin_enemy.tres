@@ -12,4 +12,5 @@ script = ExtResource("1_aqjul")
 movement_speed = 25.0
 character_name = "Goblin"
 character_texture = SubResource("AtlasTexture_853uk")
+minCoin = 5
 metadata/_custom_type_script = "uid://yvl7ae2d5an5"

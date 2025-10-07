@@ -1,14 +1,20 @@
 class_name HealthComponent
 extends Node
 
-@export var maxHealth : float;
+@export_range(1.0, 5000) var maxHealth : float = 20;
 
 signal onHealthChange;
+signal onDeath;
 
 var _currentHealth;
 
+func _ready() -> void:
+	_currentHealth = maxHealth;
+
 func dealDamage(damage: float) -> void:
 	setHealth(self.getCurrentHealth() - damage)
+	if(self.isDead()):
+		onDeath.emit();
 
 func healDamage(heal: float) -> void:
 	setHealth(self.getCurrentHealth() + heal)
