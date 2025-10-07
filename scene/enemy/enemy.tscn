@@ -10,7 +10,7 @@
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yijav"]
-radius = 6.0
+radius = 2.994564
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_yijav")
@@ -24,16 +24,15 @@ shape = SubResource("CircleShape2D_wtpcx")
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("3_msiye")]
 character_body = NodePath("..")
+block_diagonal_movement = true
 
 [node name="PathFindingComponent" parent="." node_paths=PackedStringArray("character_body", "velocity_component") instance=ExtResource("4_tu2m7")]
 character_body = NodePath("..")
 velocity_component = NodePath("../VelocityComponent")
 
 [node name="HurtComponent" parent="." instance=ExtResource("5_dd7y5")]
-collision_layer = 0
-collision_mask = 2
 
 [node name="Projectile Collision" type="CollisionShape2D" parent="HurtComponent"]
-scale = Vector2(0.98969257, 1.0287029)
+scale = Vector2(1.669692, 1.7355056)
 shape = SubResource("CircleShape2D_yijav")
 debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)

@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func setTargetLocation(target: Node2D):
 	navigation_agent_2d.target_position = target.global_position;
+	# might require to recalculate path.
 
 func _physics_process(_delta: float) -> void:
 	if(navigation_agent_2d.target_position == null):

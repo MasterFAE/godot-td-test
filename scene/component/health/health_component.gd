@@ -26,5 +26,12 @@ func isDead() -> bool:
 	return self.getCurrentHealth() <= 0;
 	
 func setHealth(health: float):
-	_currentHealth = clampf(health, 0, health);
+	_currentHealth = clampf(health, 0, maxHealth);
 	onHealthChange.emit(_currentHealth);
+
+func setInitialHealth(_maxHealth: float) -> void:
+	if(_maxHealth <= 0):
+		printerr(str(_maxHealth), " health set initially by ", get_parent().name)
+		_maxHealth = 1;
+	self.maxHealth = _maxHealth;
+	self._currentHealth = _maxHealth;

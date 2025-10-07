@@ -13,6 +13,6 @@ func moveToDirection(direction: Vector2) -> void:
 			_velocity.y = 0
 		else:
 			_velocity.x = 0
-	
+			
 	character_body.velocity = _velocity.normalized() * movement_speed;
 	character_body.move_and_slide();

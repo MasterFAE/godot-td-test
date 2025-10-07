@@ -22,11 +22,13 @@ func _on_attack_timer_timeout() -> void:
 		return;
 		
 	var current_enemy = enemies_in_range[0];
-	print_debug(current_enemy)
 	if(current_enemy):
 		self._fire_projectile(current_enemy);
 	
+var fired = 0;
+	
 func _fire_projectile(enemy: Enemy) -> void:
+	fired+=1;
 	var _projectile = projectile.instantiate() as Projectile;
 	_projectile.projectile_variation = tower_variant.projectile_variation;
 	_projectile.target = enemy;
@@ -43,12 +45,10 @@ func _calculate_damage() -> float:
 
 func _on_range_body_entered(body: Node2D) -> void:
 	if(body is Enemy):
-		print_debug("Enemy entered field", body.name)
 		attack_timer.paused = false;
 		enemies_in_range.push_back(body);
 		
 
 func _on_range_body_exited(body: Node2D) -> void:
 	if(body is Enemy):
-		print_debug("Enemy left the field", body.name)
 		enemies_in_range.pop_front();

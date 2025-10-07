@@ -12,9 +12,11 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	sprite_2d.texture = stats.character_texture;
-	health_component.maxHealth = stats.max_health;
 	velocity_component.movement_speed = stats.movement_speed;
+	
+	health_component.setInitialHealth(stats.max_health);
 	path_finding_component.setTargetLocation(navigation_target);
+
 	health_component.onDeath.connect(onDeath)
 	hurt_component.onHurt.connect(health_component.dealDamage)
 	
@@ -26,6 +28,4 @@ func navigation_target_reached():
 func onDeath() -> void:
 	self.queue_free();
 	var coinDrop = randi_range(stats.minCoin, stats.maxCoin);
-	print_debug(coinDrop, stats.minCoin, stats.maxCoin);
 	CurrencyManager.collectCoin(coinDrop);
-	

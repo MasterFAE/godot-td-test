@@ -48,7 +48,7 @@ theme/default_font_multichannel_signed_distance_field=true
 
 [layer_names]
 
-2d_physics/layer_2="Projectile"
+2d_physics/layer_2="Hit"
 
 [rendering]
 

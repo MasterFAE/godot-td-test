@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://xv3mpnec2gfi"]
+[gd_scene load_steps=10 format=4 uid="uid://xv3mpnec2gfi"]
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_abdik"]
 [ext_resource type="PackedScene" uid="uid://bue24ywcbi0rl" path="res://scene/tower/tower.tscn" id="2_qhdi5"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://bt7uu4imd7gal" path="res://resource/tower/mage_tower.tres" id="4_tbd4o"]
 [ext_resource type="Resource" uid="uid://gxhgj7ylhgff" path="res://resource/enemy/goblin_enemy.tres" id="5_tbd4o"]
 [ext_resource type="PackedScene" uid="uid://4lrstp1nshww" path="res://scene/ui/currency_panel.tscn" id="7_mml4v"]
+[ext_resource type="PackedScene" uid="uid://cco748i655w52" path="res://scene/object/projectile/projectile.tscn" id="8_w7ior"]
+[ext_resource type="Resource" uid="uid://c18y02t5sgcyd" path="res://resource/projectile/arrow_projectile.tres" id="9_4k3wl"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -47,4 +49,14 @@ scale = Vector2(0.75, 0.75)
 navigation_target = NodePath("../Goal")
 stats = ExtResource("5_tbd4o")
 
+[node name="Enemy3" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("4_eyrtm")]
+position = Vector2(141.00002, 271)
+scale = Vector2(0.75, 0.75)
+navigation_target = NodePath("../Goal")
+stats = ExtResource("5_tbd4o")
+
 [node name="CurrencyPanel" parent="." instance=ExtResource("7_mml4v")]
+
+[node name="Projectile" parent="." instance=ExtResource("8_w7ior")]
+position = Vector2(297, 233)
+projectile_variation = ExtResource("9_4k3wl")

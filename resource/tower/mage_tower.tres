@@ -14,7 +14,6 @@ tower_name = "Mage Tower"
 texture = SubResource("AtlasTexture_swxrg")
 projectile_variation = ExtResource("1_xeug4")
 attack_damage = 20.0
-attack_cooldown = 0.5
 attack_range = 1.0
 crit_rate = 0.3
 crit_multiplier = 1.25
