@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cetycb8mqa7x3"]
+[gd_scene load_steps=8 format=3 uid="uid://cetycb8mqa7x3"]
 
 [ext_resource type="Script" uid="uid://c4op7rwtw3i0i" path="res://scene/enemy/enemy.gd" id="1_yijav"]
-[ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health_component.tscn" id="2_nytjq"]
+[ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health/health_component.tscn" id="2_nytjq"]
+[ext_resource type="PackedScene" uid="uid://bansrugvg8fuu" path="res://scene/component/velocity/velocity_component.tscn" id="3_msiye"]
+[ext_resource type="PackedScene" uid="uid://bdnuei2xibk1d" path="res://scene/component/path_finding/path_finding_component.tscn" id="4_tu2m7"]
+[ext_resource type="PackedScene" uid="uid://capn38habwmjf" path="res://scene/component/hurt/hurt_component.tscn" id="5_dd7y5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtpcx"]
 radius = 4.0
@@ -17,20 +20,20 @@ script = ExtResource("1_yijav")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wtpcx")
 
-[node name="Projectile Area" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="Projectile Collision" type="CollisionShape2D" parent="Projectile Area"]
-shape = SubResource("CircleShape2D_yijav")
-debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)
-
 [node name="HealthComponent" parent="." instance=ExtResource("2_nytjq")]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 1.0
-target_desired_distance = 3.0
-path_postprocessing = 1
-debug_enabled = true
-debug_path_custom_color = Color(0.77254903, 0.5921569, 0.8666667, 1)
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("3_msiye")]
+character_body = NodePath("..")
 
-[connection signal="body_entered" from="Projectile Area" to="." method="_on_projectile_area_body_entered"]
+[node name="PathFindingComponent" parent="." node_paths=PackedStringArray("character_body", "velocity_component") instance=ExtResource("4_tu2m7")]
+character_body = NodePath("..")
+velocity_component = NodePath("../VelocityComponent")
+
+[node name="HurtComponent" parent="." instance=ExtResource("5_dd7y5")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Projectile Collision" type="CollisionShape2D" parent="HurtComponent"]
+scale = Vector2(0.98969257, 1.0287029)
+shape = SubResource("CircleShape2D_yijav")
+debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)
