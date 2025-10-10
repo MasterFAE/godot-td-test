@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5do10etklt8x"]
+
+[ext_resource type="Script" uid="uid://c4op7rwtw3i0i" path="res://scene/enemy/enemy.gd" id="1_t3qg0"]
+[ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health/health_component.tscn" id="2_ctx4y"]
+[ext_resource type="Resource" uid="uid://gxhgj7ylhgff" path="res://resource/enemy/goblin_enemy.tres" id="2_pueav"]
+[ext_resource type="Texture2D" uid="uid://27f1yiuvw5vg" path="res://assets/character/Orc.png" id="3_8nm8x"]
+[ext_resource type="PackedScene" uid="uid://bansrugvg8fuu" path="res://scene/component/velocity/velocity_component.tscn" id="3_pueav"]
+[ext_resource type="PackedScene" uid="uid://bdnuei2xibk1d" path="res://scene/component/path_finding/path_finding_component.tscn" id="4_8nm8x"]
+[ext_resource type="PackedScene" uid="uid://capn38habwmjf" path="res://scene/component/hurt/hurt_component.tscn" id="5_4jxf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jxf7"]
+atlas = ExtResource("3_8nm8x")
+region = Rect2(43, 36, 24, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wtpcx"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yijav"]
+radius = 2.994564
+
+[node name="Goblin Enemy" type="CharacterBody2D" groups=["ground_enemy"]]
+script = ExtResource("1_t3qg0")
+stats = ExtResource("2_pueav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -9)
+texture = SubResource("AtlasTexture_4jxf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_wtpcx")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ctx4y")]
+
+[node name="VelocityComponent" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("3_pueav")]
+character_body = NodePath("..")
+block_diagonal_movement = true
+
+[node name="PathFindingComponent" parent="." node_paths=PackedStringArray("character_body", "velocity_component") instance=ExtResource("4_8nm8x")]
+character_body = NodePath("..")
+velocity_component = NodePath("../VelocityComponent")
+
+[node name="HurtComponent" parent="." instance=ExtResource("5_4jxf7")]
+
+[node name="Projectile Collision" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -4)
+scale = Vector2(1.669692, 1.7355056)
+shape = SubResource("CircleShape2D_yijav")
+debug_color = Color(0.53365624, 0.41154337, 1, 0.41960785)

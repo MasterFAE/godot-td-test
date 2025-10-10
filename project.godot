@@ -44,7 +44,7 @@ folder_colors={
 
 [global_group]
 
-goblin_enemy=""
+ground_enemy=""
 
 [gui]
 

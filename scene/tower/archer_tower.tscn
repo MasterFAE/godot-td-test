@@ -32,7 +32,7 @@ shape = SubResource("RectangleShape2D_jbypk")
 [node name="Projectiles" type="Node" parent="."]
 
 [node name="AttackComponent" parent="." instance=ExtResource("4_t0iyb")]
-enemy_groups = Array[String](["goblin_enemy"])
+enemy_groups = Array[String](["ground_enemy", "air_enemy"])
 
 [node name="RangeCollider" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("CircleShape2D_mtpyc")
