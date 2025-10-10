@@ -12,7 +12,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yijav"]
 radius = 2.994564
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["goblin_enemy"]]
 script = ExtResource("1_yijav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

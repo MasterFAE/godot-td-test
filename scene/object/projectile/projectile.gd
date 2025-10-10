@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var hit_component: HitComponent = $HitComponent
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 
-var target: Enemy
+var target: CharacterBody2D
 var damage := 0;
 
 func _ready() -> void:

@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bue24ywcbi0rl"]
+[gd_scene load_steps=6 format=3 uid="uid://dqfmukwvpm6ak"]
 
-[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/tower/tower.gd" id="1_nrt1x"]
-[ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="2_nrt1x"]
+[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/tower/tower.gd" id="1_5sc82"]
+[ext_resource type="Resource" uid="uid://f7r1wwcv2u1g" path="res://resource/tower/archer_tower.tres" id="2_2celc"]
+[ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="3_kn8kk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbypk"]
 size = Vector2(20, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtpyc"]
+radius = 60.033325
 
 [node name="Tower" type="StaticBody2D"]
-script = ExtResource("1_nrt1x")
+script = ExtResource("1_5sc82")
+tower_variant = ExtResource("2_2celc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
@@ -20,7 +23,7 @@ shape = SubResource("RectangleShape2D_jbypk")
 
 [node name="Projectiles" type="Node" parent="."]
 
-[node name="AttackComponent" parent="." instance=ExtResource("2_nrt1x")]
+[node name="AttackComponent" parent="." instance=ExtResource("3_kn8kk")]
 enemy_groups = Array[String](["goblin_enemy"])
 
 [node name="RangeCollider" type="CollisionShape2D" parent="AttackComponent"]
