@@ -2,7 +2,6 @@ class_name Projectile
 extends CharacterBody2D
 
 @export var projectile_variation : ProjectileVariation;
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var hit_component: HitComponent = $HitComponent
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 
@@ -10,8 +9,6 @@ var target: CharacterBody2D
 var damage := 0;
 
 func _ready() -> void:
-	sprite_2d.texture = projectile_variation.projectile_texture;
-	sprite_2d.scale = Vector2(0.03, 0.03);
 	hit_component.damage = damage;
 	velocity_component.movement_speed = projectile_variation.projectile_speed;
 
