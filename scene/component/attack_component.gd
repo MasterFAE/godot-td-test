@@ -15,12 +15,11 @@ func setAttackCooldown(attack_cooldown: float):
 func _on_body_entered(body: Node2D) -> void:
 	if(body is not CharacterBody2D): 
 		return;
-	
 	var enemy = body as CharacterBody2D;
 	var isEnemy = _is_target_in_enemy_group(enemy);
+	print(isEnemy)
 	if(!isEnemy):
 		return;
-		
 	enemies_in_range.push_back(enemy);
 	if(attack_timer.paused):
 		attack_timer.paused = false;

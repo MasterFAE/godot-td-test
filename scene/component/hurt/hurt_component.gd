@@ -12,7 +12,14 @@ signal onHurt
 		#
 
 func _on_area_entered(area: Area2D) -> void:
-	if(area is HitComponent):
-		var hit_component = area as HitComponent;
-		onHurt.emit(hit_component.damage);
+	print("area entered")
+	if area is not HitComponent:
+		return;
+		
+	var hit_component = area as HitComponent;
+	if(hit_component.get_parent() == self.get_parent()):
+		return;
+		
+	onHurt.emit(hit_component.damage);
+	if(hit_component.destroyOnCollision):
 		hit_component.get_parent().queue_free();

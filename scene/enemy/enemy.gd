@@ -21,7 +21,6 @@ func _ready() -> void:
 func navigation_target_reached():
 	# reduce player health;
 	self.queue_free();
-	pass;
 
 func onDeath() -> void:
 	self.queue_free();

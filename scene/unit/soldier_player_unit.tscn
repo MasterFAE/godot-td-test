@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://cj7nkx64m0pnn"]
+
+[ext_resource type="Script" uid="uid://b3n8fjpkijko1" path="res://scene/unit/player_unit.gd" id="1_8tlxt"]
+[ext_resource type="Resource" uid="uid://dl5hisb5bj65d" path="res://resource/unit/soldier_unit.tres" id="2_n5i2f"]
+[ext_resource type="Texture2D" uid="uid://d3t7be8jqq4sk" path="res://assets/character/Warrior_Idle.png" id="2_tfys0"]
+[ext_resource type="Script" uid="uid://b0u0xwmup34dm" path="res://scene/component/health/health_component.gd" id="3_n5i2f"]
+[ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="5_n5i2f"]
+[ext_resource type="PackedScene" uid="uid://dd335q0u1mvkl" path="res://scene/component/hit/hit_component.tscn" id="6_coe7g"]
+[ext_resource type="PackedScene" uid="uid://capn38habwmjf" path="res://scene/component/hurt/hurt_component.tscn" id="7_1tsf5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqkab"]
+atlas = ExtResource("2_tfys0")
+region = Rect2(62, 48, 79, 89)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ty0gu"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ayyg"]
+radius = 121.0661
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5i2f"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tgj7"]
+radius = 24.0
+
+[node name="SoldierPlayerUnit" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_8tlxt")
+stats = ExtResource("2_n5i2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+texture = SubResource("AtlasTexture_kqkab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -24)
+shape = SubResource("CircleShape2D_ty0gu")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_n5i2f")
+metadata/_custom_type_script = "uid://b0u0xwmup34dm"
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_n5i2f")]
+enemy_groups = Array[String](["ground_enemy"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+shape = SubResource("CircleShape2D_8ayyg")
+debug_color = Color(0.6759988, 0.47235125, 0.5006987, 0.41960785)
+
+[node name="HitComponent" parent="." instance=ExtResource("6_coe7g")]
+destroyOnCollision = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_n5i2f")
+
+[node name="HurtComponent" parent="." instance=ExtResource("7_1tsf5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(-4, -24)
+shape = SubResource("CircleShape2D_6tgj7")
+debug_color = Color(0.93549144, 0.1556527, 0.50861675, 0.41960785)
+
+[connection signal="onAttacked" from="AttackComponent" to="." method="_on_attack_component_on_attacked"]
