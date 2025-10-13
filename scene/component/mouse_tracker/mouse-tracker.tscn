@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://mc3atf3nvac2"]
+
+[ext_resource type="Script" uid="uid://dkgobqgps7mj7" path="res://scene/component/mouse_tracker/mouse_tracker.gd" id="1_g6sqw"]
+[ext_resource type="Texture2D" uid="uid://ckkgw08gumbo1" path="res://assets/ui/BoxSelector.png" id="2_4xyj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix8gd"]
+atlas = ExtResource("2_4xyj0")
+region = Rect2(0, 0, 16, 16)
+
+[node name="MouseTracker" type="Node2D"]
+script = ExtResource("1_g6sqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ix8gd")
