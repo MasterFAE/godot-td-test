@@ -32,15 +32,16 @@ position = Vector2(649, 400)
 position = Vector2(256, 244)
 
 [node name="Mage Tower" parent="." instance=ExtResource("6_fgjrq")]
-position = Vector2(316, 242)
+position = Vector2(218, 307)
 
 [node name="Goblin Enemy" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_eyrtm")]
 position = Vector2(194, 275)
 navigation_target = NodePath("../Goal")
 
 [node name="Goblin Enemy2" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_eyrtm")]
-position = Vector2(162, 276)
+position = Vector2(151, 275)
 navigation_target = NodePath("../Goal")
 
 [node name="PlayerUnit" parent="." instance=ExtResource("6_tbd4o")]
-position = Vector2(242, 271)
+position = Vector2(242, 276)
+scale = Vector2(-0.25, 0.25)

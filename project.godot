@@ -46,6 +46,7 @@ folder_colors={
 [global_group]
 
 ground_enemy=""
+player_unit_ground=""
 
 [gui]
 
@@ -57,7 +58,7 @@ theme/default_font_multichannel_signed_distance_field=true
 2d_physics/layer_5="enemy_hurt_ground"
 2d_physics/layer_6="player_hurt_ground"
 2d_physics/layer_9="player_hit_ground"
-2d_physics/layer_10="enemy_hit"
+2d_physics/layer_10="enemy_hit_ground"
 
 [rendering]
 

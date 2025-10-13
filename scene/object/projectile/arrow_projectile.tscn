@@ -30,6 +30,8 @@ shape = SubResource("RectangleShape2D_7tee1")
 texture = SubResource("AtlasTexture_mjo6l")
 
 [node name="HitComponent" parent="." instance=ExtResource("2_ww62t")]
+collision_layer = 256
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 scale = Vector2(23.28, 7.6400013)
@@ -38,3 +40,5 @@ debug_color = Color(0.7927862, 0.08077263, 0.99999994, 0.41960785)
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("3_7tee1")]
 character_body = NodePath("..")
+
+[connection signal="area_entered" from="HitComponent" to="HitComponent" method="_on_area_entered"]

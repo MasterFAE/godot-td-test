@@ -7,6 +7,8 @@ extends Node2D
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
+var isMoving := true;
+
 signal onNavigationTargetReached;
 
 func _ready() -> void:

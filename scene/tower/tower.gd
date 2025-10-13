@@ -14,6 +14,6 @@ func _ready() -> void:
 func _fire_projectile(enemy: CharacterBody2D) -> void:
 	var _projectile = tower_projectile.instantiate() as Projectile;
 	_projectile.target = enemy;
-	_projectile.damage = tower_variant.attack_stats._calculate_damage();
+	_projectile.call_deferred("setHitComponentAttackStats", tower_variant.attack_stats);
 	_projectile.global_position = Vector2(global_position.x, global_position.y - 15);
 	projectiles.add_child(_projectile);

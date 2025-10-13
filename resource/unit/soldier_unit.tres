@@ -11,4 +11,5 @@ metadata/_custom_type_script = "uid://cu40bmd3osaao"
 [resource]
 script = ExtResource("2_a0l6p")
 unit_name = "Soldier"
+max_health = 12.0
 attack_stats = SubResource("Resource_opjf3")

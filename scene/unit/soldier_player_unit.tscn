@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://capn38habwmjf" path="res://scene/component/hurt/hurt_component.tscn" id="7_1tsf5"]
 [ext_resource type="Script" uid="uid://bwhnh3qo3pbn2" path="res://script/state_machine/node_state_machine.gd" id="8_1tsf5"]
 [ext_resource type="Script" uid="uid://d1vhw5pjfw21v" path="res://scene/unit/idle_state.gd" id="9_bmc0t"]
-[ext_resource type="Script" uid="uid://c0t66rwm6ckav" path="res://scene/unit/attack_state.gd" id="11_ydi5y"]
+[ext_resource type="Script" uid="uid://c0t66rwm6ckav" path="res://script/state_machine/state/attack_state.gd" id="11_ydi5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2uy1"]
 atlas = ExtResource("3_1tsf5")
@@ -121,7 +121,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6tgj7"]
 radius = 24.0
 
-[node name="SoldierPlayerUnit" type="CharacterBody2D"]
+[node name="SoldierPlayerUnit" type="CharacterBody2D" groups=["player_unit_ground"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_8tlxt")
 stats = ExtResource("2_n5i2f")
@@ -143,7 +143,7 @@ metadata/_custom_type_script = "uid://b0u0xwmup34dm"
 
 [node name="AttackComponent" parent="." instance=ExtResource("5_n5i2f")]
 position = Vector2(0, -32)
-scale = Vector2(0.56388, 0.56388)
+scale = Vector2(0.72388065, 0.56388)
 enemy_groups = Array[String](["ground_enemy"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
@@ -151,7 +151,6 @@ shape = SubResource("CircleShape2D_8ayyg")
 debug_color = Color(0.6759988, 0.47235125, 0.5006987, 0.41960785)
 
 [node name="HitComponent" parent="." instance=ExtResource("6_coe7g")]
-visible = false
 collision_layer = 256
 collision_mask = 16
 destroyOnCollision = false
@@ -160,7 +159,8 @@ destroyOnCollision = false
 shape = SubResource("CircleShape2D_n5i2f")
 
 [node name="HurtComponent" parent="." instance=ExtResource("7_1tsf5")]
-visible = false
+position = Vector2(0, 8)
+scale = Vector2(1, 1.319997)
 collision_layer = 32
 collision_mask = 0
 
@@ -177,8 +177,11 @@ metadata/_custom_type_script = "uid://bwhnh3qo3pbn2"
 [node name="Idle" type="Node" parent="NodeStateMachine"]
 script = ExtResource("9_bmc0t")
 
-[node name="Attack" type="Node" parent="NodeStateMachine"]
+[node name="Attack" type="Node" parent="NodeStateMachine" node_paths=PackedStringArray("attack_component", "hit_component", "animated_sprite_2d")]
 script = ExtResource("11_ydi5y")
+attack_component = NodePath("../../AttackComponent")
+hit_component = NodePath("../../HitComponent")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [connection signal="onAttacked" from="AttackComponent" to="NodeStateMachine/Idle" method="_on_attack_component_on_attacked"]
 [connection signal="area_entered" from="HitComponent" to="HitComponent" method="_on_area_entered"]

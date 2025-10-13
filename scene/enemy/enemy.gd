@@ -8,8 +8,11 @@ extends CharacterBody2D
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 @onready var path_finding_component: PathfindingComponent = $PathFindingComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
+@onready var hit_component: HitComponent = $HitComponent
 
 func _ready() -> void:
+	hit_component.setAttackStats(stats.attack_stats)
+	hit_component.triggerCollider(false);
 	velocity_component.movement_speed = stats.movement_speed;
 	
 	health_component.setInitialHealth(stats.max_health);

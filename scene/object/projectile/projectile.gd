@@ -9,8 +9,10 @@ var target: CharacterBody2D
 var damage := 0;
 
 func _ready() -> void:
-	hit_component.damage = damage;
 	velocity_component.movement_speed = projectile_variation.projectile_speed;
+	
+func setHitComponentAttackStats(attackStats: AttackStats):
+	hit_component.setAttackStats(attackStats);
 
 func _physics_process(_delta: float) -> void:
 	if(target == null):

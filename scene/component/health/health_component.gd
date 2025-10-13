@@ -12,6 +12,7 @@ func _ready() -> void:
 	_currentHealth = maxHealth;
 
 func dealDamage(damage: float) -> void:
+	print(get_parent().name, " damage received: " , damage)
 	setHealth(self.getCurrentHealth() - damage)
 	if(self.isDead()):
 		onDeath.emit();
