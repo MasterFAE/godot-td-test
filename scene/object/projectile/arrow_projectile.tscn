@@ -40,5 +40,3 @@ debug_color = Color(0.7927862, 0.08077263, 0.99999994, 0.41960785)
 
 [node name="VelocityComponent" parent="." node_paths=PackedStringArray("character_body") instance=ExtResource("3_7tee1")]
 character_body = NodePath("..")
-
-[connection signal="area_entered" from="HitComponent" to="HitComponent" method="_on_area_entered"]

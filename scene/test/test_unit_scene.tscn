@@ -28,10 +28,6 @@ position = Vector2(649, 400)
 
 [node name="GameScreen" parent="." instance=ExtResource("2_osfdk")]
 
-[node name="Goblin Enemy" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_gkxlj")]
-position = Vector2(194, 275)
-navigation_target = NodePath("../Goal")
-
 [node name="Goblin Enemy2" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_gkxlj")]
 position = Vector2(158, 275)
 navigation_target = NodePath("../Goal")

@@ -184,4 +184,3 @@ hit_component = NodePath("../../HitComponent")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [connection signal="onAttacked" from="AttackComponent" to="NodeStateMachine/Idle" method="_on_attack_component_on_attacked"]
-[connection signal="area_entered" from="HitComponent" to="HitComponent" method="_on_area_entered"]
