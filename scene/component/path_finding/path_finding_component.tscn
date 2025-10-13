@@ -9,5 +9,4 @@ script = ExtResource("1_a6et7")
 path_desired_distance = 1.0
 target_desired_distance = 3.0
 path_postprocessing = 1
-debug_enabled = true
 debug_path_custom_color = Color(0.77254903, 0.5921569, 0.8666667, 1)

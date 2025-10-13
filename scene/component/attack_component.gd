@@ -52,6 +52,12 @@ func _on_attack_timer_timeout() -> void:
 		attack_timer.paused = true;
 		return;
 		
-	var current_enemy = enemies_in_range[0];
+	var current_enemy = self.getCurrentEnemy()
 	if(current_enemy):
 		onAttacked.emit(current_enemy)
+		
+func getCurrentEnemy() -> CharacterBody2D:
+	if(!enemies_in_range.is_empty()):
+		return enemies_in_range[0]
+		
+	return null;

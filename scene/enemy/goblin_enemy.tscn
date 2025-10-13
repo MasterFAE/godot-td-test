@@ -41,6 +41,8 @@ character_body = NodePath("..")
 velocity_component = NodePath("../VelocityComponent")
 
 [node name="HurtComponent" parent="." instance=ExtResource("5_4jxf7")]
+collision_layer = 16
+collision_mask = 256
 
 [node name="Projectile Collision" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, -4)

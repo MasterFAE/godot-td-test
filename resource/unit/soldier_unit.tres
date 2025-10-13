@@ -5,7 +5,6 @@
 
 [sub_resource type="Resource" id="Resource_opjf3"]
 script = ExtResource("1_bn0wc")
-attack_damage = 100.0
 attack_cooldown = 0.1
 metadata/_custom_type_script = "uid://cu40bmd3osaao"
 

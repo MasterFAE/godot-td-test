@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5divcs7f3it6"]
 
 [ext_resource type="Script" uid="uid://b3n8fjpkijko1" path="res://scene/unit/player_unit.gd" id="1_8ayyg"]
-[ext_resource type="Texture2D" uid="uid://d3t7be8jqq4sk" path="res://assets/character/Warrior_Idle.png" id="1_ty0gu"]
+[ext_resource type="Texture2D" uid="uid://d3t7be8jqq4sk" path="res://assets/character/warrior/Warrior_Idle.png" id="1_ty0gu"]
 [ext_resource type="Script" uid="uid://b0u0xwmup34dm" path="res://scene/component/health/health_component.gd" id="2_8ayyg"]
 [ext_resource type="Script" uid="uid://tv4n1ayf4t6e" path="res://scene/component/attack_component.gd" id="3_6tgj7"]
 [ext_resource type="Script" uid="uid://bn82716h17xjf" path="res://scene/component/hurt/hurt_component.gd" id="4_do6rp"]

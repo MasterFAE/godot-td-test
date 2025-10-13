@@ -32,10 +32,14 @@ position = Vector2(194, 275)
 navigation_target = NodePath("../Goal")
 
 [node name="Goblin Enemy2" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_gkxlj")]
-position = Vector2(162, 276)
+position = Vector2(182, 275)
 navigation_target = NodePath("../Goal")
 
 [node name="SoldierPlayerUnit" parent="." instance=ExtResource("6_shio3")]
-position = Vector2(279, 275)
+position = Vector2(244, 272)
 
 [node name="MouseTracker" parent="." instance=ExtResource("5_ugboi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(234, 254)
+zoom = Vector2(3, 3)
