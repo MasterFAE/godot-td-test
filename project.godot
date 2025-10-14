@@ -47,6 +47,7 @@ folder_colors={
 
 ground_enemy=""
 player_unit_ground=""
+player_building=""
 
 [gui]
 

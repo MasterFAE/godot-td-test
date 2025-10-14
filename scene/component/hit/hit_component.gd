@@ -15,11 +15,14 @@ func _ready() -> void:
 		printerr("Collider cannot found in HitComponent")
 		
 func _on_area_entered(area: Area2D) -> void:
-	print(get_parent().name, " area entered")
+	print(get_parent().name, " area entered: ", area.get_parent().name)
+	print(area is not HurtComponent)
 	if area is not HurtComponent:
 		return;
 		
 	var hurt_component = area as HurtComponent;
+	print(hurt_component)
+	print(self.getDamage())
 	hurt_component.onHurt.emit(self.getDamage());
 	self.call_deferred("triggerCollider", false)
 	if(self.destroyOnCollision):

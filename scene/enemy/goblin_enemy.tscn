@@ -264,7 +264,7 @@ debug_color = Color(0.60784316, 0, 0.12941177, 1)
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_a3xnr")]
 scale = Vector2(1.6000001, 1)
-enemy_groups = Array[String](["player_unit_ground"])
+enemy_groups = Array[String](["player_unit_ground", "player_building"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(2, -6)

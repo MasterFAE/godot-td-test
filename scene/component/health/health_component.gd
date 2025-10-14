@@ -26,6 +26,9 @@ func getCurrentHealth() -> float:
 func isDead() -> bool:
 	return self.getCurrentHealth() <= 0;
 	
+func getHealthPercentage() -> float:
+	return getCurrentHealth() / maxHealth * 100
+	
 func setHealth(health: float):
 	_currentHealth = clampf(health, 0, maxHealth);
 	onHealthChange.emit(_currentHealth);

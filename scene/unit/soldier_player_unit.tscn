@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cj7nkx64m0pnn"]
+[gd_scene load_steps=30 format=3 uid="uid://cj7nkx64m0pnn"]
 
 [ext_resource type="Script" uid="uid://b3n8fjpkijko1" path="res://scene/unit/player_unit.gd" id="1_8tlxt"]
 [ext_resource type="Resource" uid="uid://dl5hisb5bj65d" path="res://resource/unit/soldier_unit.tres" id="2_n5i2f"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bwhnh3qo3pbn2" path="res://script/state_machine/node_state_machine.gd" id="8_1tsf5"]
 [ext_resource type="Script" uid="uid://d1vhw5pjfw21v" path="res://scene/unit/idle_state.gd" id="9_bmc0t"]
 [ext_resource type="Script" uid="uid://c0t66rwm6ckav" path="res://script/state_machine/state/attack_state.gd" id="11_ydi5y"]
+[ext_resource type="PackedScene" uid="uid://dla26frtoget6" path="res://scene/ui/healthbar/health_bar.tscn" id="12_3m8nd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2uy1"]
 atlas = ExtResource("3_1tsf5")
@@ -133,7 +134,6 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-4, -24)
 shape = SubResource("CircleShape2D_ty0gu")
 
@@ -182,5 +182,21 @@ script = ExtResource("11_ydi5y")
 attack_component = NodePath("../../AttackComponent")
 hit_component = NodePath("../../HitComponent")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("12_3m8nd")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -96.0
+offset_right = -11.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+health_component = NodePath("../HealthComponent")
 
 [connection signal="onAttacked" from="AttackComponent" to="NodeStateMachine/Idle" method="_on_attack_component_on_attacked"]
