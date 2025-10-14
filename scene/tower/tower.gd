@@ -1,3 +1,4 @@
+class_name Tower
 extends StaticBody2D
 
 @export var tower_variant: TowerVariation;

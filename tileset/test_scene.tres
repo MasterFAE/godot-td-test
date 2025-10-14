@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://5rffg80i47yo"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://5rffg80i47yo"]
 
 [ext_resource type="Texture2D" uid="uid://dkilo30ekns0t" path="res://assets/tile/Grass.png" id="1_vh6ny"]
 [ext_resource type="Texture2D" uid="uid://b6xnr2g15arfn" path="res://assets/tile/Tilled_Dirt_Wide_v2.png" id="2_7jv0e"]
+[ext_resource type="Texture2D" uid="uid://dypyk5578j5f2" path="res://assets/tile/build-tile.png" id="2_560lr"]
 [ext_resource type="Texture2D" uid="uid://bx22ntf4neur1" path="res://assets/tile/Water.png" id="3_7jv0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_560lr"]
@@ -102,6 +103,11 @@ texture = ExtResource("1_vh6ny")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u5wq"]
+texture = ExtResource("2_560lr")
+0:0/0 = 0
+0:0/0/custom_data_0 = true
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7jv0e"]
 vertices = PackedVector2Array(8, 8, -0.8125, 8, -0.09375, -2.3359375, 8, -2.515625)
@@ -330,6 +336,9 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Road"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 navigation_layer_0/layers = 1
+custom_data_layer_0/name = "buildable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_560lr")
 sources/2 = SubResource("TileSetAtlasSource_xt8x1")
 sources/3 = SubResource("TileSetAtlasSource_6pdoh")
+sources/1 = SubResource("TileSetAtlasSource_1u5wq")

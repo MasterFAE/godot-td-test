@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://bvn6817vcy60w"]
+
+[ext_resource type="Script" uid="uid://0p06msqnkcjb" path="res://scene/ui/build_panel/building_card/building_card.gd" id="1_7442m"]
+[ext_resource type="Texture2D" uid="uid://y5tnth65kmvq" path="res://assets/ui/32x32.png" id="1_icrbi"]
+[ext_resource type="Resource" uid="uid://f7r1wwcv2u1g" path="res://resource/tower/archer_tower.tres" id="2_qy7tp"]
+[ext_resource type="PackedScene" uid="uid://do8sltp03vqqe" path="res://scene/tower/archer_tower.tscn" id="3_hcinw"]
+[ext_resource type="Texture2D" uid="uid://laowecf8xd31" path="res://assets/ui/Sprite sheet for Basic Pack.png" id="3_lc3vx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lc3vx"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-bf2b9bae7639a80c22ddd29682f75ee3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utfrb"]
+atlas = SubResource("CompressedTexture2D_lc3vx")
+region = Rect2(63, 159, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc3vx"]
+atlas = ExtResource("3_lc3vx")
+region = Rect2(111, 15, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7442m"]
+atlas = ExtResource("1_icrbi")
+region = Rect2(353, 3009, 32, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icrbi"]
+atlas = ExtResource("1_icrbi")
+region = Rect2(448, 1440, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy7tp"]
+atlas = ExtResource("1_icrbi")
+region = Rect2(356, 4292, 24, 24)
+
+[node name="ArcherCard" type="TextureButton"]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 150.0
+offset_bottom = 150.0
+texture_normal = SubResource("AtlasTexture_utfrb")
+texture_disabled = SubResource("AtlasTexture_lc3vx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_7442m")
+tower_scene = ExtResource("3_hcinw")
+tower_variant = ExtResource("2_qy7tp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 143.0
+offset_bottom = 138.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7442m")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Archer Tower"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DamageContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/DamageContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_icrbi")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DamageContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Attack:"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/DamageContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "92"
+
+[node name="RangeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/RangeContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_qy7tp")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RangeContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Range:"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RangeContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Long"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

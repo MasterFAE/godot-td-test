@@ -7,3 +7,4 @@ extends Resource
 @export_range(5, 100) var projectile_offset := 20;
 
 @export var attack_stats: AttackStats;
+@export var build_cost: int = 1;

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://b2vys1pdnjiin"]
+[gd_scene load_steps=7 format=4 uid="uid://b2vys1pdnjiin"]
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_mbo2y"]
 [ext_resource type="PackedScene" uid="uid://dgkyc80kufsnu" path="res://scene/ui/game_screen.tscn" id="2_osfdk"]
 [ext_resource type="PackedScene" uid="uid://b5do10etklt8x" path="res://scene/enemy/goblin_enemy.tscn" id="5_gkxlj"]
 [ext_resource type="PackedScene" uid="uid://mc3atf3nvac2" path="res://scene/component/mouse_tracker/mouse-tracker.tscn" id="5_ugboi"]
-[ext_resource type="PackedScene" uid="uid://ba680a2i3fe36" path="res://scene/object/gate/small_gate.tscn" id="7_osfdk"]
+[ext_resource type="Script" uid="uid://68fjwrj0uhqg" path="res://script/global/building_manager.gd" id="6_mbo2y"]
+[ext_resource type="PackedScene" uid="uid://cj7nkx64m0pnn" path="res://scene/unit/soldier_player_unit.tscn" id="6_osfdk"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -27,9 +28,6 @@ position = Vector2(649, 400)
 
 [node name="GameScreen" parent="." instance=ExtResource("2_osfdk")]
 
-[node name="SmallGate" parent="." instance=ExtResource("7_osfdk")]
-position = Vector2(286, 248)
-
 [node name="Goblin Enemy2" parent="." node_paths=PackedStringArray("navigation_target") instance=ExtResource("5_gkxlj")]
 position = Vector2(158, 275)
 navigation_target = NodePath("../Goal")
@@ -43,3 +41,11 @@ navigation_target = NodePath("../Goal")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(234, 254)
 zoom = Vector2(3, 3)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_mbo2y")
+
+[node name="SoldierPlayerUnit" parent="." instance=ExtResource("6_osfdk")]
+position = Vector2(241, 275)
+up_direction = Vector2(0.7071068, -0.7071068)
+wall_min_slide_angle = 1.3177236

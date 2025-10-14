@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgkyc80kufsnu"]
+[gd_scene load_steps=3 format=3 uid="uid://dgkyc80kufsnu"]
 
 [ext_resource type="PackedScene" uid="uid://4lrstp1nshww" path="res://scene/ui/currency_panel.tscn" id="1_knabk"]
+[ext_resource type="PackedScene" uid="uid://dhph4fkd8kqp2" path="res://scene/ui/build_panel/build_panel.tscn" id="2_rsy2t"]
 
 [node name="GameScreen" type="CanvasLayer"]
 
@@ -17,3 +18,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="CurrencyPanel" parent="MarginContainer" instance=ExtResource("1_knabk")]
 layout_mode = 2
+
+[node name="BuildPanel" parent="MarginContainer" instance=ExtResource("2_rsy2t")]
+layout_mode = 2
+size_flags_vertical = 8

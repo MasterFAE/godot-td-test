@@ -22,6 +22,7 @@ func _on_exit() -> void:
 func _on_attack_component_on_attacked(_target: CharacterBody2D) -> void:
 	isAttacking = true;
 	animated_sprite_2d.play("attack");
+	animated_sprite_2d.flip_h = _target.global_position.x <= animated_sprite_2d.global_position.x
 	hit_component.setColliderPosition(_target.global_position);
 	hit_component.triggerCollider(true);
 	await get_tree().create_timer(attack_time).timeout

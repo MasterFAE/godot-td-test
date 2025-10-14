@@ -1,8 +1,8 @@
 extends Node
 
-@export var initial_coin := 100;
+@export var initial_coin : int = 100;
 
-var current_coin := 0;
+var current_coin : int = self.initial_coin;
 
 signal onCoinChange;
 
@@ -17,3 +17,7 @@ func spendCoin(amount: int):
 	elif(amount > current_coin): return;
 	current_coin -= amount;
 	onCoinChange.emit(current_coin)
+
+
+func canAfford(amount: int):
+	return current_coin >= amount;
