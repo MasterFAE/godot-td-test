@@ -42,6 +42,9 @@ func _input(event: InputEvent) -> void:
 func _check_is_buildable() -> bool:
 	if(!CurrencyManager.canAfford(tempBuildingCost)):
 		return false;
+		
+	if(building_tilemap == null):
+		return false;
 	
 	var clicked_cell = building_tilemap.local_to_map(building_tilemap.get_local_mouse_position())
 	var data = building_tilemap.get_cell_tile_data(clicked_cell)

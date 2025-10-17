@@ -16,6 +16,7 @@ func _ready() -> void:
 		self.setTargetLocation(navigation_target);
 
 func setTargetLocation(target: Node2D):
+	print_debug(target, navigation_agent_2d)
 	navigation_agent_2d.target_position = target.global_position;
 	# might require to recalculate path.
 
