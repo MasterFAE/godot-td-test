@@ -16,7 +16,7 @@ func _ready() -> void:
 	velocity_component.movement_speed = stats.movement_speed;
 	
 	health_component.setInitialHealth(stats.max_health);
-	path_finding_component.setTargetLocation(navigation_target);
+	#path_finding_component.setTargetLocation(navigation_target);
 
 	health_component.onDeath.connect(onDeath)
 	hurt_component.onHurt.connect(health_component.dealDamage)

@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=4 uid="uid://d0a875r4i551s"]
+[gd_scene load_steps=18 format=4 uid="uid://d0a875r4i551s"]
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_eydem"]
 [ext_resource type="PackedScene" uid="uid://dgkyc80kufsnu" path="res://scene/ui/game_screen.tscn" id="2_fkmbs"]
 [ext_resource type="PackedScene" uid="uid://ba680a2i3fe36" path="res://scene/object/gate/small_gate.tscn" id="3_kyo83"]
 [ext_resource type="PackedScene" uid="uid://mc3atf3nvac2" path="res://scene/component/mouse_tracker/mouse-tracker.tscn" id="4_up0uw"]
-[ext_resource type="Script" uid="uid://68fjwrj0uhqg" path="res://script/global/building_manager.gd" id="5_2knr6"]
+[ext_resource type="Script" uid="uid://68fjwrj0uhqg" path="res://scene/manager/building_manager/building_manager.gd" id="5_2knr6"]
 [ext_resource type="PackedScene" uid="uid://b5do10etklt8x" path="res://scene/enemy/goblin_enemy.tscn" id="6_h6ysk"]
-[ext_resource type="PackedScene" uid="uid://dccvow1gogfla" path="res://scene/component/enemy_spawner/enemy_spawner_component.tscn" id="7_eydem"]
+[ext_resource type="PackedScene" uid="uid://dccvow1gogfla" path="res://scene/component/spawner/spawner_component.tscn" id="7_eydem"]
 [ext_resource type="PackedScene" uid="uid://cj7nkx64m0pnn" path="res://scene/unit/soldier_player_unit.tscn" id="7_u18yx"]
-[ext_resource type="Script" uid="uid://m04gjm7fnp7t" path="res://scene/component/enemy_spawner/enemy_spawner_entity.gd" id="8_kyo83"]
+[ext_resource type="Script" uid="uid://m04gjm7fnp7t" path="res://scene/component/spawner/spawner_entity.gd" id="8_kyo83"]
+[ext_resource type="PackedScene" uid="uid://cj7ac5e7gg3g0" path="res://scene/manager/enemy_wave_manager/enemy_wave_manager.tscn" id="10_up0uw"]
+[ext_resource type="Script" uid="uid://c7serrqs5ov12" path="res://scene/component/spawner/spawner_entity_queue.gd" id="11_2knr6"]
 
 [sub_resource type="Resource" id="Resource_up0uw"]
 script = ExtResource("8_kyo83")
@@ -21,6 +23,28 @@ script = ExtResource("8_kyo83")
 entity = ExtResource("6_h6ysk")
 count = 1
 metadata/_custom_type_script = "uid://m04gjm7fnp7t"
+
+[sub_resource type="Resource" id="Resource_gtg86"]
+script = ExtResource("8_kyo83")
+entity = ExtResource("6_h6ysk")
+count = 4
+metadata/_custom_type_script = "uid://m04gjm7fnp7t"
+
+[sub_resource type="Resource" id="Resource_u18yx"]
+script = ExtResource("11_2knr6")
+entity_queue = Array[ExtResource("8_kyo83")]([SubResource("Resource_gtg86")])
+metadata/_custom_type_script = "uid://c7serrqs5ov12"
+
+[sub_resource type="Resource" id="Resource_wrogr"]
+script = ExtResource("8_kyo83")
+entity = ExtResource("6_h6ysk")
+count = 5
+metadata/_custom_type_script = "uid://m04gjm7fnp7t"
+
+[sub_resource type="Resource" id="Resource_ew3hg"]
+script = ExtResource("11_2knr6")
+entity_queue = Array[ExtResource("8_kyo83")]([SubResource("Resource_wrogr")])
+metadata/_custom_type_script = "uid://c7serrqs5ov12"
 
 [node name="TestScene" type="Node2D"]
 
@@ -64,11 +88,15 @@ mouse_tracker = NodePath("../MouseTracker")
 [node name="SoldierPlayerUnit" parent="." instance=ExtResource("7_u18yx")]
 position = Vector2(254, 273)
 
-[node name="SpawnerComponent" parent="." node_paths=PackedStringArray("spawnGoalNode", "parentNode") instance=ExtResource("7_eydem")]
-position = Vector2(136, 273)
+[node name="SpawnerComponent" parent="." node_paths=PackedStringArray("parentNode") instance=ExtResource("7_eydem")]
 spawnerQueue = Array[ExtResource("8_kyo83")]([SubResource("Resource_up0uw"), SubResource("Resource_h6ysk")])
-spawnGoalNode = NodePath("../Goal")
 parentNode = NodePath("../Entities")
 spawnTimeout = 1.0
 
 [node name="Entities" type="Node2D" parent="."]
+
+[node name="EnemyWaveManager" parent="." node_paths=PackedStringArray("navigation_target", "parent_node") instance=ExtResource("10_up0uw")]
+position = Vector2(143, 273)
+navigation_target = NodePath("../Goal")
+parent_node = NodePath("../Entities")
+spawnerLevelQueue = Array[ExtResource("11_2knr6")]([SubResource("Resource_u18yx"), SubResource("Resource_ew3hg")])

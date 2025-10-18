@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dccvow1gogfla"]
 
-[ext_resource type="Script" uid="uid://c5gl46fsvt32y" path="res://scene/component/enemy_spawner/enemy_spawner_component.gd" id="1_unya3"]
+[ext_resource type="Script" uid="uid://c5gl46fsvt32y" path="res://scene/component/spawner/spawner_component.gd" id="1_unya3"]
 
-[node name="EnemySpawnerComponent" type="Node2D"]
+[node name="SpawnerComponent" type="Node"]
 script = ExtResource("1_unya3")
 
 [node name="Timer" type="Timer" parent="."]

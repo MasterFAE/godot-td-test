@@ -1,8 +1,8 @@
-class_name EnemySpawnerComponent
-extends Node2D
+class_name SpawnerComponent
+extends Node
 
+@export var spawnPosition : Vector2;
 @export var spawnerQueue : Array[SpawnerEntity];
-@export var spawnGoalNode: Node2D;
 @export var parentNode: Node2D;
 
 @export_range(0.1, 10) var spawnTimeout: float; 
@@ -10,13 +10,14 @@ extends Node2D
 
 var currentSpawnerQueue: Array[SpawnerEntity];
 
-signal onEntitySpawn(entity: PackedScene);
+signal onEntitySpawn(entity: Node);
 signal onSpawnQueueCompleted;
 
-func _ready() -> void:
-	timer.wait_time = spawnTimeout;
-	timer.autostart = true; # must change
-	currentSpawnerQueue = spawnerQueue.duplicate_deep();
+func _setup_spawner(queue: Array[SpawnerEntity], _spawnPosition: Vector2, _parentNode: Node2D, timeout: float = 1.0):
+	self._update_queue(queue);	
+	self.spawnPosition = _spawnPosition;
+	self.parentNode = _parentNode;
+	self.timer.wait_time = timeout;
 
 func _on_timer_timeout() -> void:
 	if(currentSpawnerQueue.is_empty()):
@@ -33,10 +34,13 @@ func _on_timer_timeout() -> void:
 	
 func _spawn_entity(entity: PackedScene):
 	var spawnedEntity = entity.instantiate() as Enemy;
-	spawnedEntity.position = self.position;
-	spawnedEntity.navigation_target = spawnGoalNode;
+	spawnedEntity.position = spawnPosition;
 	# need to set enemy.target node
 	if(parentNode != null):
 		parentNode.add_child(spawnedEntity);
 		
-	onEntitySpawn.emit(entity);
+	onEntitySpawn.emit(spawnedEntity);
+	
+func _update_queue(queue: Array[SpawnerEntity]):
+	self.spawnerQueue = queue;
+	self.currentSpawnerQueue = queue.duplicate_deep();
