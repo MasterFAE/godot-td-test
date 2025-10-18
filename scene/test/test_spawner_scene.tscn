@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d0a875r4i551s"]
+[gd_scene load_steps=12 format=4 uid="uid://d0a875r4i551s"]
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_eydem"]
 [ext_resource type="PackedScene" uid="uid://dgkyc80kufsnu" path="res://scene/ui/game_screen.tscn" id="2_fkmbs"]
@@ -14,12 +14,6 @@
 script = ExtResource("8_kyo83")
 entity = ExtResource("6_h6ysk")
 count = 4
-metadata/_custom_type_script = "uid://m04gjm7fnp7t"
-
-[sub_resource type="Resource" id="Resource_2knr6"]
-script = ExtResource("8_kyo83")
-entity = ExtResource("7_u18yx")
-count = 2
 metadata/_custom_type_script = "uid://m04gjm7fnp7t"
 
 [sub_resource type="Resource" id="Resource_h6ysk"]
@@ -72,7 +66,7 @@ position = Vector2(254, 273)
 
 [node name="SpawnerComponent" parent="." node_paths=PackedStringArray("spawnGoalNode", "parentNode") instance=ExtResource("7_eydem")]
 position = Vector2(136, 273)
-spawnerQueue = Array[ExtResource("8_kyo83")]([SubResource("Resource_up0uw"), SubResource("Resource_2knr6"), SubResource("Resource_h6ysk")])
+spawnerQueue = Array[ExtResource("8_kyo83")]([SubResource("Resource_up0uw"), SubResource("Resource_h6ysk")])
 spawnGoalNode = NodePath("../Goal")
 parentNode = NodePath("../Entities")
 spawnTimeout = 1.0

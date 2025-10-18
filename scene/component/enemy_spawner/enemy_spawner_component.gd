@@ -1,4 +1,4 @@
-class_name SpawnerComponent
+class_name EnemySpawnerComponent
 extends Node2D
 
 @export var spawnerQueue : Array[SpawnerEntity];
@@ -11,6 +11,7 @@ extends Node2D
 var currentSpawnerQueue: Array[SpawnerEntity];
 
 signal onEntitySpawn(entity: PackedScene);
+signal onSpawnQueueCompleted;
 
 func _ready() -> void:
 	timer.wait_time = spawnTimeout;
@@ -18,6 +19,11 @@ func _ready() -> void:
 	currentSpawnerQueue = spawnerQueue.duplicate_deep();
 
 func _on_timer_timeout() -> void:
+	if(currentSpawnerQueue.is_empty()):
+		timer.stop();
+		onSpawnQueueCompleted.emit();
+		return;
+		
 	var spawnResource = currentSpawnerQueue[0]
 	spawnResource.count -= 1;
 	if(spawnResource.count <= 0):
@@ -26,8 +32,9 @@ func _on_timer_timeout() -> void:
 	_spawn_entity(spawnResource.entity)
 	
 func _spawn_entity(entity: PackedScene):
-	var spawnedEntity = entity.instantiate();
+	var spawnedEntity = entity.instantiate() as Enemy;
 	spawnedEntity.position = self.position;
+	spawnedEntity.navigation_target = spawnGoalNode;
 	# need to set enemy.target node
 	if(parentNode != null):
 		parentNode.add_child(spawnedEntity);
