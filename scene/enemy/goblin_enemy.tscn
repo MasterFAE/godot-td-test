@@ -217,6 +217,7 @@ radius = 6.6666665
 radius = 16.779823
 
 [node name="Goblin Enemy" type="CharacterBody2D" groups=["ground_enemy"]]
+collision_layer = 2
 script = ExtResource("1_t3qg0")
 stats = ExtResource("2_pueav")
 
@@ -227,7 +228,6 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_wtpcx")
 

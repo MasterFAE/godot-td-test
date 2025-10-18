@@ -9,7 +9,7 @@ var currentWave = 0;
 
 func _ready() -> void:
 	enemy_spawner_component._setup_spawner(self.spawnerLevelQueue[0].entity_queue, self.position, parent_node)
-	enemy_spawner_component.timer.start();
+	GameSignalBus.onStartNewWave.connect(onStartNewWave);
 	
 	
 func _on_spawner_component_on_entity_spawn(entity: Node) -> void:
@@ -21,6 +21,11 @@ func _on_spawner_component_on_entity_spawn(entity: Node) -> void:
 
 func _on_spawner_component_on_spawn_queue_completed() -> void:
 	print("Wave completed")
-	currentWave += 1;
-	enemy_spawner_component._update_queue(spawnerLevelQueue[currentWave].entity_queue);
-	print("Current Wave: ", currentWave)
+	GameSignalBus.onCompleteWave.emit();
+
+
+func onStartNewWave(wave: int):
+	currentWave = wave;
+	enemy_spawner_component._update_queue(spawnerLevelQueue[wave].entity_queue);
+	if(enemy_spawner_component.timer.is_stopped()):
+		enemy_spawner_component.timer.start();

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 CurrencyManager="*res://script/global/currency_manager.gd"
 UiSignalBus="*res://script/global/ui_signal_bus.gd"
+GameSignalBus="*res://script/global/game_signal_bus.gd"
 
 [display]
 
@@ -69,7 +70,8 @@ mouse_right={
 
 [layer_names]
 
-2d_physics/layer_2="Hit"
+2d_physics/layer_1="player_unit_ground"
+2d_physics/layer_2="enemy_unit_ground"
 2d_physics/layer_5="enemy_hurt_ground"
 2d_physics/layer_6="player_hurt_ground"
 2d_physics/layer_9="player_hit_ground"
