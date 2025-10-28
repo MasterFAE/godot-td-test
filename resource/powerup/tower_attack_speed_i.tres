@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://kp0hpj8hgoy0"]
 
-[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_70wfq"]
+[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_j4sto"]
 
 [resource]
-script = ExtResource("1_70wfq")
+script = ExtResource("1_j4sto")
 display_name = "Attack Speed I"
 value = 5.0
+modifier_type = 3
 metadata/_custom_type_script = "uid://daml3nm1bce5n"

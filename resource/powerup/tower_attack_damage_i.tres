@@ -7,4 +7,5 @@ script = ExtResource("1_70wfq")
 display_name = "Tower Attack Damage I"
 value = 500.0
 type = 1
+modifier_type = 2
 metadata/_custom_type_script = "uid://daml3nm1bce5n"

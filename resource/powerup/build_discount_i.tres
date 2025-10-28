@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://31tyqw5gpqk4"]
+
+[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_ubfom"]
+
+[resource]
+script = ExtResource("1_ubfom")
+display_name = "Build Discount I"
+value = 5.0
+type = 6
+modifier_type = 1
+metadata/_custom_type_script = "uid://daml3nm1bce5n"

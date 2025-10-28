@@ -12,4 +12,5 @@ metadata/_custom_type_script = "uid://cu40bmd3osaao"
 script = ExtResource("1_msjtb")
 tower_name = "Archer Tower"
 attack_stats = SubResource("Resource_rv235")
+build_cost = 20
 metadata/_custom_type_script = "uid://cwr1qvcicphc3"
