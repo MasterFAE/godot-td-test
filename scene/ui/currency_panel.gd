@@ -1,8 +1,8 @@
 extends Control
 
 @onready var coin_label: Label = $"PanelContainer/MarginContainer/HBoxContainer/Coin Label"
-@onready var level_label: Label = $MarginContainer/Level
-@onready var exp_bar: ProgressBar = $MarginContainer/ExpBar
+@onready var level_label: Label = $ExpContainer/Level
+@onready var exp_bar: ProgressBar = $ExpContainer/ExpBar
 
 func _ready() -> void:
 	onCoinChange(CurrencyManager.current_coin)
