@@ -6,12 +6,14 @@ extends Resource
 @export var character_name: String;
 @export var character_description: String;
 @export var attack_stats: AttackStats;
-@export_range(1,500) var minCoin: int = 1;
-@export_range(10,1000) var maxCoin: int = 10;
+@export var coin_drop_range: Vector2i;
+@export var xp_drop_range: Vector2;
 
 func getDropCoin() -> int:
-	return randi_range(self.minCoin, self.maxCoin);
+	return randi_range(self.coin_drop_range[0], self.coin_drop_range[1]);
 	
+func getDropXp() -> float:
+	return randf_range(self.xp_drop_range[0], self.xp_drop_range[1]);
 
 #@export_range(0,10) var physical_armor: float = 1;
 #@export_range(0,10) var magical_armor: float = 1;

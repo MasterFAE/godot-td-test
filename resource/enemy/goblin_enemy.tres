@@ -13,5 +13,6 @@ max_health = 10.0
 movement_speed = 15.0
 character_name = "Goblin"
 attack_stats = SubResource("Resource_853uk")
-minCoin = 5
+coin_drop_range = Vector2i(5, 10)
+xp_drop_range = Vector2(10, 20)
 metadata/_custom_type_script = "uid://yvl7ae2d5an5"

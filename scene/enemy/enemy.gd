@@ -29,3 +29,5 @@ func onDeath() -> void:
 	self.queue_free();
 	var coinDrop = stats.getDropCoin();
 	CurrencyManager.collectCoin(coinDrop);
+	var xpDrop = stats.getDropXp();
+	ExperienceManager.addExperience(xpDrop);

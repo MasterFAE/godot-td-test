@@ -21,8 +21,6 @@ func _on_area_entered(area: Area2D) -> void:
 		return;
 		
 	var hurt_component = area as HurtComponent;
-	print(hurt_component)
-	print(self.getDamage())
 	hurt_component.onHurt.emit(self.getDamage());
 	self.call_deferred("triggerCollider", false)
 	if(self.destroyOnCollision):
