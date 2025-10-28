@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 CurrencyManager="*res://script/global/currency_manager.gd"
 UiSignalBus="*res://script/global/ui_signal_bus.gd"
 GameSignalBus="*res://script/global/game_signal_bus.gd"
+ExperienceManager="*res://script/global/experience_manager.gd"
 
 [display]
 
