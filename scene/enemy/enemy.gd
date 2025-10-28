@@ -20,6 +20,7 @@ func _ready() -> void:
 
 	health_component.onDeath.connect(onDeath)
 	hurt_component.onHurt.connect(health_component.dealDamage)
+	#PowerupManager.onPowerUpAdded.connect(stats.onNewPowerUp);
 	
 func navigation_target_reached():
 	# reduce player health;

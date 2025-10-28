@@ -20,6 +20,7 @@ CurrencyManager="*res://script/global/currency_manager.gd"
 UiSignalBus="*res://script/global/ui_signal_bus.gd"
 GameSignalBus="*res://script/global/game_signal_bus.gd"
 ExperienceManager="*res://script/global/experience_manager.gd"
+PowerupManager="*res://script/global/powerup_manager.gd"
 
 [display]
 
@@ -36,6 +37,10 @@ window/vsync/vsync_mode=0
 [dotnet]
 
 project/assembly_name="td-test"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/log/plugin.cfg", "res://addons/reload_current_scene/plugin.cfg")
 
 [file_customization]
 

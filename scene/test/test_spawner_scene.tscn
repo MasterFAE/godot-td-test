@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://m04gjm7fnp7t"
 [sub_resource type="Resource" id="Resource_gtg86"]
 script = ExtResource("8_kyo83")
 entity = ExtResource("6_h6ysk")
-count = 30
+count = 1
 metadata/_custom_type_script = "uid://m04gjm7fnp7t"
 
 [sub_resource type="Resource" id="Resource_u18yx"]

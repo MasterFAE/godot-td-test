@@ -8,7 +8,7 @@ extends Resource
 
 func _calculate_damage() -> float:
 	var damage = attack_damage;
-	var crit_random_rate = randf();
-	if(crit_rate <= crit_random_rate):
+	var crit_random_rate = randf() * 100;
+	if(crit_rate > crit_random_rate):
 		damage *= crit_multiplier;
 	return damage;
