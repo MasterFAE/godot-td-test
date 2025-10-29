@@ -18,10 +18,8 @@ func _ready() -> void:
 	hit_component.setAttackStats(stats.attack_stats)
 	hit_component.triggerCollider(false);
 	velocity_component.movement_speed = stats.movement_speed;
-	
 	health_component.setInitialHealth(stats.max_health);
 	#path_finding_component.setTargetLocation(navigation_target);
-
 	health_component.onDeath.connect(onDeath)
 	hurt_component.onHurt.connect(health_component.dealDamage)
 	PowerupManager.onPowerUpAdded.connect(onNewPowerUp);
