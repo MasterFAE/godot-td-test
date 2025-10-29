@@ -37,7 +37,6 @@ func onDeath() -> void:
 	var xpDrop = stats.getDropXp();
 	ExperienceManager.addExperience(xpDrop);
 	
-	
 func _init_all_powerups() -> void:
 	for powerup_type in stats.affecting_powerup_types:
 		_apply_powerup(powerup_type)

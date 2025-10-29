@@ -32,4 +32,4 @@ func get_powered_stat(input: float, powerup_type: PowerUp.POWERUP_TYPE, is_incre
 	else:
 		output = input * (1 - percentage_powerup) - value_powerup;
 	Log.pr({"type": PowerUp.POWERUP_TYPE_TO_STRING[powerup_type], "input": input, "output": output, "value": value_powerup, "perc": percentage_powerup})
-	return clampf(output, 0, output);
+	return clampf(output, 0.1, output);

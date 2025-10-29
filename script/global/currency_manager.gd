@@ -1,6 +1,6 @@
 extends Node
 
-@export var initial_coin : int = 100;
+@export var initial_coin : int = 1000;
 
 var current_coin : int = self.initial_coin;
 

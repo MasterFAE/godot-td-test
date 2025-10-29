@@ -16,13 +16,14 @@ var tower_variant_runtime: TowerVariation;
 
 func _ready() -> void:
 	tower_variant_runtime = base_tower_variant.duplicate(true);
+	_init_all_powerups();
 	attack_component.setAttackCooldown(tower_variant_runtime.attack_stats.attack_cooldown);
 	attack_component.onAttacked.connect(_fire_projectile)
 	PowerupManager.onPowerUpAdded.connect(self.onNewPowerUp);
 	PowerupManager.add_powerup(TOWER_ATTACK_SPEED_I)
-	PowerupManager.add_powerup(TOWER_ATTACK_DAMAGE_I)
-	PowerupManager.add_powerup(ENEMY_GOLD_DROP_TEST)
-	PowerupManager.add_powerup(ENEMY_XP_DROP_TEST)
+	#PowerupManager.add_powerup(TOWER_ATTACK_DAMAGE_I)
+	#PowerupManager.add_powerup(ENEMY_GOLD_DROP_TEST)
+	#PowerupManager.add_powerup(ENEMY_XP_DROP_TEST)
 	#range_collider.shape.radius = tower_variant_runtime.attack_range * 64;
 	
 func _fire_projectile(enemy: CharacterBody2D) -> void:
@@ -31,16 +32,20 @@ func _fire_projectile(enemy: CharacterBody2D) -> void:
 	_projectile.call_deferred("setHitComponentAttackStats", tower_variant_runtime.attack_stats);
 	_projectile.global_position = Vector2(global_position.x, global_position.y - 15);
 	projectiles.add_child(_projectile);
-
-func onNewPowerUp(powerup: PowerUp) -> void:
-	var type = powerup.type;
-	match type:
-		PowerUp.POWERUP_TYPE.TOWER_ATTACK_DAMAGE:
-			tower_variant_runtime.attack_stats.attack_damage = PowerupManager.get_powered_stat_by_powerup(base_tower_variant.attack_stats.attack_damage, powerup);
-		PowerUp.POWERUP_TYPE.TOWER_ATTACK_SPEED:
-			tower_variant_runtime.attack_stats.attack_cooldown = PowerupManager.get_powered_stat_by_powerup(base_tower_variant.attack_stats.attack_cooldown, powerup);
-			attack_component.attack_timer.wait_time = tower_variant_runtime.attack_stats.attack_cooldown;
-		PowerUp.POWERUP_TYPE.BUILDING_DISCOUNT:
-			tower_variant_runtime.build_cost = int(PowerupManager.get_powered_stat_by_powerup(base_tower_variant.build_cost, powerup));
-	Log.pr("Received powerup", powerup);
 	
+func _init_all_powerups() -> void:
+	for powerup_type in tower_variant_runtime.affecting_powerup_types:
+		_apply_powerup(powerup_type)
+	
+func _apply_powerup(powerup_type: PowerUp.POWERUP_TYPE) -> void:
+	match powerup_type:
+		PowerUp.POWERUP_TYPE.TOWER_ATTACK_DAMAGE:
+			tower_variant_runtime.attack_stats.attack_damage = PowerupManager.get_powered_stat(base_tower_variant.attack_stats.attack_damage, powerup_type, true);
+		PowerUp.POWERUP_TYPE.TOWER_ATTACK_SPEED:
+			tower_variant_runtime.attack_stats.attack_cooldown = PowerupManager.get_powered_stat(base_tower_variant.attack_stats.attack_cooldown, powerup_type, false);
+			attack_component.setAttackCooldown(tower_variant_runtime.attack_stats.attack_cooldown);
+		PowerUp.POWERUP_TYPE.BUILDING_DISCOUNT:
+			tower_variant_runtime.build_cost = int(PowerupManager.get_powered_stat(base_tower_variant.build_cost, powerup_type, true));
+	
+func onNewPowerUp(powerup: PowerUp) -> void:
+	self._apply_powerup(powerup.type)
