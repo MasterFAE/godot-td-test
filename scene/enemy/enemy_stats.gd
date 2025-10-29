@@ -8,6 +8,7 @@ extends Resource
 @export var attack_stats: AttackStats;
 @export var coin_drop_range: Vector2i;
 @export var xp_drop_range: Vector2;
+@export var affecting_powerup_types : Array[PowerUp.POWERUP_TYPE] = [PowerUp.POWERUP_TYPE.ENEMY_XP_DROP, PowerUp.POWERUP_TYPE.ENEMY_GOLD_DROP];
 
 func getDropCoin() -> int:
 	return randi_range(self.coin_drop_range[0], self.coin_drop_range[1]);

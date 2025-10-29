@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://b7h8cqrkxlodt"]
+
+[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_sy62w"]
+
+[resource]
+script = ExtResource("1_sy62w")
+display_name = "Enemies Drop More Gold TEST"
+value = 5000.0
+type = 5
+metadata/_custom_type_script = "uid://daml3nm1bce5n"

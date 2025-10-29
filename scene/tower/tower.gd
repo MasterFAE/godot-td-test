@@ -9,6 +9,8 @@ extends StaticBody2D
 const TOWER_ATTACK_SPEED_I = preload("uid://kp0hpj8hgoy0")
 const TOWER_ATTACK_DAMAGE_I = preload("uid://cgi0oi1q15byh")
 const BUILD_DISCOUNT_I = preload("uid://31tyqw5gpqk4")
+const ENEMY_GOLD_DROP_TEST = preload("uid://b7h8cqrkxlodt")
+const ENEMY_XP_DROP_TEST = preload("uid://cxiwm8khfcyyl")
 
 var tower_variant_runtime: TowerVariation;
 
@@ -19,7 +21,8 @@ func _ready() -> void:
 	PowerupManager.onPowerUpAdded.connect(self.onNewPowerUp);
 	PowerupManager.add_powerup(TOWER_ATTACK_SPEED_I)
 	PowerupManager.add_powerup(TOWER_ATTACK_DAMAGE_I)
-	PowerupManager.add_powerup(BUILD_DISCOUNT_I)
+	PowerupManager.add_powerup(ENEMY_GOLD_DROP_TEST)
+	PowerupManager.add_powerup(ENEMY_XP_DROP_TEST)
 	#range_collider.shape.radius = tower_variant_runtime.attack_range * 64;
 	
 func _fire_projectile(enemy: CharacterBody2D) -> void:

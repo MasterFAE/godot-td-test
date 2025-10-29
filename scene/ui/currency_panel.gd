@@ -16,7 +16,9 @@ func onCoinChange(coin: int) -> void:
 
 func onLevelUp(level: int) -> void:
 	level_label.text = "Lv. {level}".format({"level": str(level)});
+	Log.pr({"required xp": ExperienceManager.getRequiredExperienceForLevelup()})
 	exp_bar.max_value = ExperienceManager.getRequiredExperienceForLevelup();
 
 func onExpChange(xp: float) -> void:
+	Log.pr({"new exp": xp})
 	exp_bar.value = xp;
