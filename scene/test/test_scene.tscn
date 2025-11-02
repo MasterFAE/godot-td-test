@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_abdik"]
 [ext_resource type="PackedScene" uid="uid://b5do10etklt8x" path="res://scene/enemy/goblin_enemy.tscn" id="5_eyrtm"]
-[ext_resource type="PackedScene" uid="uid://do8sltp03vqqe" path="res://scene/tower/archer_tower.tscn" id="5_mml4v"]
-[ext_resource type="PackedScene" uid="uid://befuwgxkb856h" path="res://scene/tower/mage_tower.tscn" id="6_fgjrq"]
+[ext_resource type="PackedScene" uid="uid://do8sltp03vqqe" path="res://scene/building/tower/archer_tower/archer_tower.tscn" id="5_mml4v"]
+[ext_resource type="PackedScene" uid="uid://befuwgxkb856h" path="res://scene/building/tower/mage_tower/mage_tower.tscn" id="6_fgjrq"]
 [ext_resource type="PackedScene" uid="uid://cj7nkx64m0pnn" path="res://scene/unit/soldier_player_unit.tscn" id="6_tbd4o"]
 [ext_resource type="PackedScene" uid="uid://dgkyc80kufsnu" path="res://scene/ui/game_screen.tscn" id="9_w7ior"]
 
