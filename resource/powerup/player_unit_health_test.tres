@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://dj2pr45tabm8h"]
+
+[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_ithij"]
+
+[resource]
+script = ExtResource("1_ithij")
+display_name = "Increase Unit Health"
+value = 50.0
+type = 2
+modifier_type = 2
+metadata/_custom_type_script = "uid://daml3nm1bce5n"

@@ -11,6 +11,8 @@ const TOWER_ATTACK_DAMAGE_I = preload("uid://cgi0oi1q15byh")
 const BUILD_DISCOUNT_I = preload("uid://31tyqw5gpqk4")
 const ENEMY_GOLD_DROP_TEST = preload("uid://b7h8cqrkxlodt")
 const ENEMY_XP_DROP_TEST = preload("uid://cxiwm8khfcyyl")
+const PLAYER_UNIT_ATTACK_DAMAGE_TEST = preload("uid://brhntn8kgv77d")
+const PLAYER_UNIT_HEALTH_TEST = preload("uid://dj2pr45tabm8h")
 
 var tower_variant_runtime: TowerVariation;
 
@@ -20,7 +22,9 @@ func _ready() -> void:
 	attack_component.setAttackCooldown(tower_variant_runtime.attack_stats.attack_cooldown);
 	attack_component.onAttacked.connect(_fire_projectile)
 	PowerupManager.onPowerUpAdded.connect(self.onNewPowerUp);
-	PowerupManager.add_powerup(TOWER_ATTACK_SPEED_I)
+	PowerupManager.add_powerup(PLAYER_UNIT_HEALTH_TEST)
+	PowerupManager.add_powerup(PLAYER_UNIT_ATTACK_DAMAGE_TEST)
+	#PowerupManager.add_powerup(TOWER_ATTACK_SPEED_I)
 	#PowerupManager.add_powerup(TOWER_ATTACK_DAMAGE_I)
 	#PowerupManager.add_powerup(ENEMY_GOLD_DROP_TEST)
 	#PowerupManager.add_powerup(ENEMY_XP_DROP_TEST)
