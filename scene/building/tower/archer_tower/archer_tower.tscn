@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://do8sltp03vqqe"]
 
-[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/tower.gd" id="1_odido"]
+[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/building_tower.gd" id="1_odido"]
 [ext_resource type="Resource" uid="uid://f7r1wwcv2u1g" path="res://scene/building/tower/archer_tower/archer_tower.tres" id="2_7baru"]
 [ext_resource type="Texture2D" uid="uid://23xklocbrb0" path="res://assets/tower/towers.png" id="2_bibco"]
 [ext_resource type="PackedScene" uid="uid://bfbvsx5bkxpxm" path="res://scene/object/projectile/arrow_projectile.tscn" id="3_t0iyb"]

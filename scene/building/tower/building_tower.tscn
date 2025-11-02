@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bue24ywcbi0rl"]
 
-[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/tower.gd" id="1_nrt1x"]
+[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/building_tower.gd" id="1_nrt1x"]
 [ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="2_nrt1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbypk"]

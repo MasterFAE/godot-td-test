@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TowerResource" load_steps=4 format=3 uid="uid://bt7uu4imd7gal"]
 
 [ext_resource type="Script" uid="uid://cu40bmd3osaao" path="res://scene/attack_stats.gd" id="1_v5chg"]
-[ext_resource type="Script" uid="uid://cwr1qvcicphc3" path="res://scene/building/tower/tower_resource.gd" id="2_swxrg"]
+[ext_resource type="Script" uid="uid://cwr1qvcicphc3" path="res://scene/building/tower/building_tower_resource.gd" id="2_swxrg"]
 
 [sub_resource type="Resource" id="Resource_xeug4"]
 script = ExtResource("1_v5chg")

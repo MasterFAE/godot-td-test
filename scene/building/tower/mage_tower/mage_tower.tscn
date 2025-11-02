@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://befuwgxkb856h"]
 
-[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/tower.gd" id="1_0ms2r"]
+[ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/building_tower.gd" id="1_0ms2r"]
 [ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="2_g5a60"]
 [ext_resource type="Resource" uid="uid://bt7uu4imd7gal" path="res://scene/building/tower/mage_tower/mage_tower.tres" id="2_qhyvj"]
 [ext_resource type="PackedScene" uid="uid://bfbvsx5bkxpxm" path="res://scene/object/projectile/arrow_projectile.tscn" id="3_do0kn"]
@@ -14,7 +14,7 @@ radius = 41.04875
 
 [node name="Mage Tower" type="StaticBody2D"]
 script = ExtResource("1_0ms2r")
-tower_variant = ExtResource("2_qhyvj")
+base_tower_stats = ExtResource("2_qhyvj")
 tower_projectile = ExtResource("3_do0kn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
