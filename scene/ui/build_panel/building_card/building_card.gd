@@ -6,14 +6,14 @@ extends TextureButton
 @onready var range_value: Label = $MarginContainer/VBoxContainer/HBoxContainer/RangeContainer/Value
 
 @export var tower_scene: PackedScene;
-@export var tower_variant: TowerVariation;
+@export var tower_stats: TowerResource;
 
 var current_cost;
 
 func _ready() -> void:
 	#texture_rect.texture = 
-	self.attack_value.text = str(tower_variant.attack_stats.attack_damage);
-	self.current_cost = tower_variant.build_cost
+	self.attack_value.text = str(tower_stats.attack_stats.attack_damage);
+	self.current_cost = tower_stats.build_cost
 	self._update_label();
 	self.range_value.text = "Long";
 	CurrencyManager.onCoinChange.connect(_monitor_coin)
@@ -26,7 +26,7 @@ func _monitor_coin(_current_coin: int) -> void:
 func _monitor_powerup(powerup: PowerUp) -> void:
 	if(powerup.type != PowerUp.POWERUP_TYPE.BUILDING_DISCOUNT):
 		return;
-	current_cost = PowerupManager.get_powered_stat_by_powerup(tower_variant.build_cost, powerup);
+	current_cost = PowerupManager.get_powered_stat_by_powerup(tower_stats.build_cost, powerup);
 	self._update_label();
 	_monitor_coin(CurrencyManager.current_coin);
 
@@ -34,5 +34,5 @@ func _on_pressed() -> void:
 	UiSignalBus.onTriggerNewBuild.emit(tower_scene, current_cost)
 	
 func _update_label() -> void:
-	self.label.text = "{name} {cost}".format({"name": tower_variant.tower_name, "cost": current_cost});
+	self.label.text = "{name} {cost}".format({"name": tower_stats.building_name, "cost": current_cost});
 	
