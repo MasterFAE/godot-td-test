@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ProjectileVariation" load_steps=4 format=3 uid="uid://c18y02t5sgcyd"]
+
+[ext_resource type="Texture2D" uid="uid://dygqyj2akv7ed" path="res://scene/projectile/arrow_projectile/Arrows_pack.png" id="1_3lg0y"]
+[ext_resource type="Script" uid="uid://c0a4snhed6bq3" path="res://scene/projectile/projectile_variation.gd" id="2_0frh5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0101"]
+atlas = ExtResource("1_3lg0y")
+region = Rect2(192, 384, 544, 160)
+
+[resource]
+script = ExtResource("2_0frh5")
+projectile_texture = SubResource("AtlasTexture_t0101")
+projectile_speed = 100.0
+metadata/_custom_type_script = "uid://c0a4snhed6bq3"

@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba680a2i3fe36"]
+
+[ext_resource type="Script" uid="uid://cwy387npqyb1c" path="res://scene/building/gate/gate.gd" id="1_1f2x1"]
+[ext_resource type="Texture2D" uid="uid://ca11nd4n31n5" path="res://scene/building/gate/small_gate/small_gate.png" id="1_8aiki"]
+[ext_resource type="PackedScene" uid="uid://2atojsy6a4ou" path="res://scene/component/health/health_component.tscn" id="2_vfq2h"]
+[ext_resource type="PackedScene" uid="uid://capn38habwmjf" path="res://scene/component/hurt/hurt_component.tscn" id="3_ukbgb"]
+[ext_resource type="PackedScene" uid="uid://dla26frtoget6" path="res://scene/ui/healthbar/health_bar.tscn" id="5_2bwsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f2x1"]
+size = Vector2(30, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukbgb"]
+size = Vector2(32, 10)
+
+[node name="SmallGate" type="CharacterBody2D" groups=["player_building"]]
+script = ExtResource("1_1f2x1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+rotation = -1.5707964
+texture = ExtResource("1_8aiki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_1f2x1")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_vfq2h")]
+maxHealth = 10.0
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_ukbgb")]
+collision_layer = 32
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ukbgb")
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_2bwsi")]
+offset_left = -17.0
+offset_top = -15.0
+offset_right = -3.3748474
+offset_bottom = -13.396946
+health_component = NodePath("../HealthComponent")

@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="TowerVariation" load_steps=4 format=3 uid="uid://f7r1wwcv2u1g"]
+[gd_resource type="Resource" script_class="TowerResource" load_steps=4 format=3 uid="uid://f7r1wwcv2u1g"]
 
 [ext_resource type="Script" uid="uid://cwr1qvcicphc3" path="res://scene/building/tower/building_tower_resource.gd" id="1_msjtb"]
-[ext_resource type="Script" uid="uid://cu40bmd3osaao" path="res://scene/attack_stats.gd" id="1_vl0jq"]
+[ext_resource type="Script" uid="uid://cu40bmd3osaao" path="res://scene/resource/attack_stats.gd" id="1_tefnv"]
 
 [sub_resource type="Resource" id="Resource_rv235"]
-script = ExtResource("1_vl0jq")
+script = ExtResource("1_tefnv")
 attack_damage = 2.0
 metadata/_custom_type_script = "uid://cu40bmd3osaao"
 
 [resource]
 script = ExtResource("1_msjtb")
-tower_name = "Archer Tower"
 attack_stats = SubResource("Resource_rv235")
 build_cost = 20
 metadata/_custom_type_script = "uid://cwr1qvcicphc3"

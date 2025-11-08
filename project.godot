@@ -46,7 +46,6 @@ enabled=PackedStringArray("res://addons/log/plugin.cfg", "res://addons/reload_cu
 
 folder_colors={
 "res://assets/": "orange",
-"res://resource/": "red",
 "res://scene/": "green",
 "res://script/": "pink"
 }

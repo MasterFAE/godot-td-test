@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dla26frtoget6"]
 
-[ext_resource type="Texture2D" uid="uid://dglp107ih15gb" path="res://assets/healthbarUnder.png" id="1_njgwl"]
+[ext_resource type="Texture2D" uid="uid://dglp107ih15gb" path="res://assets/ui/healthbarUnder.png" id="1_njgwl"]
 [ext_resource type="Texture2D" uid="uid://bhn5nlcrtolb8" path="res://assets/ui/healthbarProgress.png" id="2_e7dgt"]
 [ext_resource type="Script" uid="uid://6hpxskhuqscj" path="res://scene/ui/healthbar/health_bar.gd" id="3_e7dgt"]
 

@@ -2,10 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://5rffg80i47yo" path="res://tileset/test_scene.tres" id="1_mbo2y"]
 [ext_resource type="PackedScene" uid="uid://dgkyc80kufsnu" path="res://scene/ui/game_screen.tscn" id="2_osfdk"]
-[ext_resource type="PackedScene" uid="uid://b5do10etklt8x" path="res://scene/enemy/goblin_enemy.tscn" id="5_gkxlj"]
+[ext_resource type="PackedScene" uid="uid://b5do10etklt8x" path="res://scene/enemy/goblin_enemy/goblin_enemy.tscn" id="5_gkxlj"]
 [ext_resource type="PackedScene" uid="uid://mc3atf3nvac2" path="res://scene/component/mouse_tracker/mouse-tracker.tscn" id="5_ugboi"]
 [ext_resource type="Script" uid="uid://68fjwrj0uhqg" path="res://scene/manager/building_manager/building_manager.gd" id="6_mbo2y"]
-[ext_resource type="PackedScene" uid="uid://cj7nkx64m0pnn" path="res://scene/unit/soldier_player_unit.tscn" id="6_osfdk"]
+[ext_resource type="PackedScene" uid="uid://cj7nkx64m0pnn" path="res://scene/player_unit/soldier_player_unit/soldier_player_unit.tscn" id="6_osfdk"]
 
 [node name="TestScene" type="Node2D"]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://brhntn8kgv77d"]
+
+[ext_resource type="Script" uid="uid://daml3nm1bce5n" path="res://scene/component/powerup/powerup.gd" id="1_6y37q"]
+
+[resource]
+script = ExtResource("1_6y37q")
+display_name = "Increase Unit Damage"
+value = 50.0
+type = 3
+metadata/_custom_type_script = "uid://daml3nm1bce5n"

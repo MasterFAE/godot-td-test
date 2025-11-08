@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b1l2ddbvukrqo" path="res://scene/building/tower/building_tower.gd" id="1_odido"]
 [ext_resource type="Resource" uid="uid://f7r1wwcv2u1g" path="res://scene/building/tower/archer_tower/archer_tower.tres" id="2_7baru"]
-[ext_resource type="Texture2D" uid="uid://23xklocbrb0" path="res://assets/tower/towers.png" id="2_bibco"]
-[ext_resource type="PackedScene" uid="uid://bfbvsx5bkxpxm" path="res://scene/object/projectile/arrow_projectile.tscn" id="3_t0iyb"]
-[ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack_component.tscn" id="4_t0iyb"]
+[ext_resource type="Texture2D" uid="uid://23xklocbrb0" path="res://scene/building/tower/towers.png" id="2_bibco"]
+[ext_resource type="PackedScene" uid="uid://bfbvsx5bkxpxm" path="res://scene/projectile/arrow_projectile/arrow_projectile.tscn" id="3_t0iyb"]
+[ext_resource type="PackedScene" uid="uid://dl2pettpfw6hl" path="res://scene/component/attack/attack_component.tscn" id="4_t0iyb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pdie"]
 atlas = ExtResource("2_bibco")
